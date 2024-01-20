@@ -7,13 +7,6 @@ import pages.HomePage;
 public class HomeTest extends TestBase{
 
     HomePage object;
-//
-//    @DataProvider(name = "ExcelData")
-//    public Object[][] LoginData() throws IOException {
-//        // get data from ExcelReader Class
-//        DataReaderExcelSheet Reader = new DataReaderExcelSheet();
-//        return Reader.getExcelData(0);
-//    }
 
     @Test(priority = 1)
     public void AddToBasket() throws Exception {
@@ -26,5 +19,6 @@ public class HomeTest extends TestBase{
     {
         object = new HomePage(driver);
         object.ClickOnShoppingCartIcon();
+        // object.dismissAlert();
     }
 }

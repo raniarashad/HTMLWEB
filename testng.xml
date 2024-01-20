@@ -6,7 +6,7 @@
 	<test thread-count="5" name="Test">
 		<classes>
 			<class name="Tests.HomeTest"></class>
-<!--			<class name=""></class>-->
+			<class name="Tests.CartTest"></class>
 <!--			<class name="Tests.E"></class>-->
 
 		</classes>

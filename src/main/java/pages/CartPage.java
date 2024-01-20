@@ -4,23 +4,44 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CartPage extends PageBase{
+public class CartPage extends PageBase {
     public CartPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy()
-    WebElement ProductName;
-
-    @FindBy()
+    @FindBy(xpath = "//td[@class='product-price']//span[@class='woocommerce-Price-amount amount']")
     WebElement ProductPrice;
 
-    @FindBy()
+    @FindBy(xpath = "//tr[@class='cart-subtotal']//span[@class='woocommerce-Price-amount amount']")
     WebElement Subtotal;
 
-    @FindBy()
+    @FindBy(xpath = "//tr[@class='tax-rate tax-rate-in-tax-1']//span[@class='woocommerce-Price-amount amount']")
     WebElement Tax;
 
-    @FindBy()
+    @FindBy(xpath = "//tr[@class='order-total']//span[@class='woocommerce-Price-amount amount']")
     WebElement Total;
+
+    @FindBy(className = "checkout-button button alt wc-forward")
+    WebElement ProceedToCheckoutBtn;
+
+    public String getProductPriceFromCartPage() {
+        return ProductPrice.getText();
+    }
+
+    public String getSubTotal() {
+        return Subtotal.getText();
+    }
+
+    public String getTaxAmount() {
+        return Tax.getText();
+    }
+
+    public void ClickOnCheckOutBtn() {
+        ClickButton(ProceedToCheckoutBtn);
+    }
+
+    public String getCartTotal()
+    {
+        return Total.getText();
+    }
 }
